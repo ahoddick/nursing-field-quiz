@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/azapp/Downloads/nursing_specialty_quiz_pro_online.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nursing Specialty Aptitude Quiz</title>
+<style>
+:root {
+  --navy:#0f3d56;
+  --blue:#1d5b79;
+  --sky:#e9f5fb;
+  --teal:#2fa7b9;
+  --mint:#eaf7f1;
+  --rose:#fff1f6;
+  --gold:#f8f3df;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --white:#fff;
+  --line:#d7e3ea;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family: Inter, Arial, sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#f7fbfd 0%,#edf6fb 100%);
+}
+.hero {
+  padding:64px 24px 40px;
+}
+.wrap {
+  max-width:1040px;
+  margin:0 auto;
+}
+.badge {
+  display:inline-block;
+  background:var(--sky);
+  color:var(--navy);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+h1 {
+  font-size: clamp(34px, 5vw, 58px);
+  line-height:1.05;
+  margin:16px 0 12px;
+  color:var(--navy);
+  max-width:720px;
+}
+.sub {
+  max-width:690px;
+  color:#405260;
+  font-size:18px;
+  line-height:1.6;
+}
+.hero-grid {
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:24px;
+  align-items:start;
+}
+.panel {
+  background:rgba(255,255,255,.84);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(215,227,234,.9);
+  border-radius:24px;
+  box-shadow:0 18px 50px rgba(15,61,86,.08);
+}
+.capture {
+  padding:28px;
+}
+.capture h3 {
+  margin:0 0 8px;
+  color:var(--navy);
+  font-size:26px;
+}
+.capture p {
+  margin:0 0 18px;
+  color:#516170;
+  line-height:1.5;
+}
+.capture label {
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.capture input {
+  width:100%;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-bottom:14px;
+  font-size:16px;
+}
+button {
+  border:none;
+  background:var(--navy);
+  color:var(--white);
+  padding:15px 22px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+button.secondary {
+  background:#e7f4fb;
+  color:var(--navy);
+}
+.meta {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:20px;
+}
+.meta .mini {
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+}
+.meta strong {
+  display:block;
+  color:var(--navy);
+  font-size:13px;
+}
+.meta span {
+  display:block;
+  margin-top:8px;
+  font-weight:700;
+}
+section.quiz {
+  padding: 0 24px 70px;
+}
+.card {
+  padding:26px;
+}
+.progress {
+  height:12px;
+  background:#edf2f7;
+  border-radius:999px;
+  overflow:hidden;
+  margin-bottom:24px;
+}
+.progress > div {
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--teal),var(--navy));
+  transition:width .3s ease;
+}
+.qcount {
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:12px;
+}
+.question h2 {
+  font-size:28px;
+  color:var(--navy);
+  margin:0 0 12px;
+}
+.weight {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--gold);
+  font-weight:800;
+  color:#7c5500;
+  margin-bottom:14px;
+  font-size:13px;
+}
+.options {
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+.option {
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  padding:16px 18px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.option:hover, .option.active {
+  border-color:#8ec5dc;
+  transform: translateY(-1px);
+  box-shadow:0 8px 20px rgba(15,61,86,.08);
+}
+.letter {
+  min-width:34px;
+  height:34px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:var(--sky);
+  color:var(--navy);
+  font-weight:800;
+}
+.nav {
+  display:flex;
+  justify-content:space-between;
+  margin-top:26px;
+  gap:12px;
+}
+.hidden { display:none; }
+.results {
+  padding: 0 24px 80px;
+}
+.result-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+}
+.result-panel {
+  padding:26px;
+}
+.type-tag {
+  display:inline-block;
+  background:var(--rose);
+  color:#9d174d;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+}
+.result-panel h2 {
+  font-size:34px;
+  margin:14px 0 8px;
+  color:var(--navy);
+}
+.kpi-row {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+.kpi {
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+}
+.kpi strong {
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.kpi span {
+  display:block;
+  margin-top:8px;
+  font-size:26px;
+  color:var(--navy);
+  font-weight:800;
+}
+.list {
+  margin:12px 0 0;
+  padding-left:18px;
+  line-height:1.7;
+}
+.footer-note {
+  margin-top:18px;
+  color:var(--muted);
+  font-size:14px;
+}
+@media (max-width:860px) {
+  .hero-grid, .result-grid { grid-template-columns:1fr; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  h1 { max-width:none; }
+}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge">3–5 minute quiz • 20 questions • weighted scoring</span>
+        <h1>Which nursing specialty fits your personality best?</h1>
+        <p class="sub">This career-fit quiz scores your stress tolerance, care style, emotional preferences, and technical comfort, then matches you to a nurse personality type and your top specialty pathways.</p>
+      </div>
+      <div class="panel capture">
+        <h3>Get your result</h3>
+        <p>Enter your details to start. The quiz will calculate your top personality type, top 3 specialties, and your fit scores across all 4 nursing dimensions.</p>
+        <label>First name</label>
+        <input id="name" placeholder="Taylor">
+        <label>Email</label>
+        <input id="email" placeholder="you@example.com">
+        <button onclick="startQuiz()">Start the quiz</button>
+        <div class="meta">
+          <div class="mini"><strong>Includes</strong><span>8 personality types</span></div>
+          <div class="mini"><strong>Matches</strong><span>20 specialties</span></div>
+          <div class="mini"><strong>Best for</strong><span>Students + new grads</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="quiz hidden" id="quizSection">
+    <div class="wrap panel card">
+      <div class="progress"><div id="bar"></div></div>
+      <div class="qcount" id="qcount"></div>
+      <div class="question">
+        <div id="weightTag"></div>
+        <h2 id="qtext"></h2>
+        <div class="options" id="options"></div>
+      </div>
+      <div class="nav">
+        <button class="secondary" onclick="prevQuestion()">Back</button>
+        <button onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="results hidden" id="resultsSection">
+    <div class="wrap result-grid">
+      <div class="panel result-panel">
+        <span class="type-tag" id="typeCode"></span>
+        <h2 id="typeName"></h2>
+        <p id="typeTagline" style="font-size:18px;color:#2563eb;font-weight:700;margin:0 0 10px;"></p>
+        <p id="typeSummary" style="line-height:1.7;"></p>
+        <div class="kpi-row" id="scores"></div>
+        <p class="footer-note" id="watchOut"></p>
+      </div>
+      <div class="panel result-panel">
+        <h2 style="font-size:28px;margin-top:0;">Your top 3 specialty matches</h2>
+        <ol class="list" id="topSpecialties"></ol>
+        <h3 style="color:var(--navy);margin:22px 0 8px;">Why these matched</h3>
+        <ul class="list" id="whyMatched"></ul>
+        <h3 style="color:var(--navy);margin:22px 0 8px;">Best next steps</h3>
+        <ul class="list">
+          <li>Shadow one role from your top 3 list.</li>
+          <li>Use your top specialty cluster when picking capstone, externship, or new-grad applications.</li>
+          <li>Compare your result with the units that gave you the most energy in clinicals.</li>
+        </ul>
+        <p class="footer-note">This is a career-fit tool, not a licensing or competency assessment.</p>
+      </div>
+    </div>
+  </section>
+
+<script>
+const questions = [{"id": "Q1", "weight": 1, "text": "Which environment energizes you most?", "A": "Fast-paced emergencies", "B": "Organized clinical routine", "C": "Emotional connection with patients", "D": "Technical procedures and equipment"}, {"id": "Q2", "weight": 1, "text": "How do you handle high-pressure situations?", "A": "I perform better under pressure", "B": "I prefer balanced pressure", "C": "I prefer supportive environments", "D": "I prefer structured protocols"}, {"id": "Q3", "weight": 1, "text": "What motivates you most in nursing?", "A": "Saving lives quickly", "B": "Helping patients recover", "C": "Supporting patients emotionally", "D": "Mastering clinical procedures"}, {"id": "Q4", "weight": 1, "text": "Which strength describes you best?", "A": "Quick decisions", "B": "Organization", "C": "Compassion", "D": "Precision"}, {"id": "Q5", "weight": 1, "text": "Which shift would you prefer?", "A": "Dynamic and unpredictable", "B": "Consistent workflow", "C": "Slower pace with meaningful conversations", "D": "Procedure-focused schedule"}, {"id": "Q6", "weight": 2, "text": "How comfortable are you with critically ill patients?", "A": "Very comfortable", "B": "Somewhat comfortable", "C": "I prefer less critical cases", "D": "Depends on the technical tasks involved"}, {"id": "Q7", "weight": 1, "text": "What type of patient interaction do you enjoy most?", "A": "Rapid stabilization", "B": "Monitoring recovery", "C": "Long-term support", "D": "Procedure-based care"}, {"id": "Q8", "weight": 1, "text": "Which task sounds most rewarding?", "A": "Stabilizing a crashing patient", "B": "Helping someone regain independence", "C": "Comforting during difficult news", "D": "Assisting with procedures"}, {"id": "Q9", "weight": 1, "text": "What drains you the most?", "A": "Slow environments", "B": "Chaos", "C": "Lack of connection", "D": "Emotional conversations"}, {"id": "Q10", "weight": 1, "text": "What type of teamwork do you prefer?", "A": "High-intensity collaboration", "B": "Organized care teams", "C": "Supportive emotional teams", "D": "Technical specialist teams"}, {"id": "Q11", "weight": 2, "text": "How do you react when multiple urgent tasks happen at once?", "A": "Prioritize and act quickly", "B": "Follow structured steps", "C": "Support others emotionally", "D": "Focus on one task at a time"}, {"id": "Q12", "weight": 1, "text": "Which statement fits you best?", "A": "I enjoy adrenaline", "B": "I prefer a steady pace", "C": "I value emotional connection", "D": "I value technical mastery"}, {"id": "Q13", "weight": 1, "text": "Which challenge excites you most?", "A": "Emergency decisions", "B": "Managing recovery", "C": "Supporting difficult moments", "D": "Learning complex procedures"}, {"id": "Q14", "weight": 1, "text": "Which patient population interests you most?", "A": "Critical patients", "B": "Recovering patients", "C": "Long-term support patients", "D": "Procedure-focused patients"}, {"id": "Q15", "weight": 2, "text": "How comfortable are you making quick decisions?", "A": "Very comfortable", "B": "Comfortable with guidelines", "C": "I prefer team decisions", "D": "I prefer protocols"}, {"id": "Q16", "weight": 1, "text": "What type of impact do you want to make?", "A": "Save lives", "B": "Improve health outcomes", "C": "Provide emotional support", "D": "Deliver technical excellence"}, {"id": "Q17", "weight": 1, "text": "Which describes you best?", "A": "Crisis problem solver", "B": "Organized coordinator", "C": "Compassionate supporter", "D": "Technical specialist"}, {"id": "Q18", "weight": 2, "text": "Which responsibility excites you most?", "A": "Managing emergencies", "B": "Coordinating care plans", "C": "Supporting patients and families", "D": "Handling specialized equipment"}, {"id": "Q19", "weight": 1, "text": "What schedule appeals most to you?", "A": "Dynamic shifts", "B": "Structured routines", "C": "Relationship-centered care", "D": "Procedure block schedules"}, {"id": "Q20", "weight": 1, "text": "What kind of recognition matters most?", "A": "Saving lives", "B": "Helping patients recover", "C": "Being a source of comfort", "D": "Executing procedures flawlessly"}];
+const specialties = [{"name": "Emergency Room", "weights": {"HA": 0.5, "CC": 0.15, "RC": 0.05, "PR": 0.3}, "bonuses": {"Q1": "A", "Q6": "A", "Q11": "A", "Q15": "A", "Q18": "A"}}, {"name": "Trauma ICU", "weights": {"HA": 0.45, "CC": 0.2, "RC": 0.05, "PR": 0.3}, "bonuses": {"Q6": "A", "Q8": "A", "Q14": "A", "Q18": "A"}}, {"name": "Cardiovascular ICU", "weights": {"HA": 0.38, "CC": 0.2, "RC": 0.07, "PR": 0.35}, "bonuses": {"Q6": "A", "Q12": "D", "Q13": "D", "Q18": "D"}}, {"name": "Telemetry", "weights": {"HA": 0.25, "CC": 0.4, "RC": 0.1, "PR": 0.25}, "bonuses": {"Q2": "B", "Q10": "B", "Q13": "B", "Q15": "B"}}, {"name": "Medical-Surgical", "weights": {"HA": 0.15, "CC": 0.5, "RC": 0.2, "PR": 0.15}, "bonuses": {"Q5": "B", "Q10": "B", "Q16": "B", "Q18": "B"}}, {"name": "Rehabilitation", "weights": {"HA": 0.08, "CC": 0.42, "RC": 0.35, "PR": 0.15}, "bonuses": {"Q8": "B", "Q13": "B", "Q14": "B", "Q20": "B"}}, {"name": "Oncology", "weights": {"HA": 0.12, "CC": 0.33, "RC": 0.4, "PR": 0.15}, "bonuses": {"Q3": "C", "Q8": "C", "Q16": "C", "Q20": "C"}}, {"name": "Hospice / Palliative Care", "weights": {"HA": 0.03, "CC": 0.2, "RC": 0.62, "PR": 0.15}, "bonuses": {"Q7": "C", "Q8": "C", "Q16": "C", "Q20": "C"}}, {"name": "Pediatrics", "weights": {"HA": 0.12, "CC": 0.28, "RC": 0.45, "PR": 0.15}, "bonuses": {"Q3": "C", "Q10": "C", "Q19": "C", "Q20": "C"}}, {"name": "Labor & Delivery", "weights": {"HA": 0.2, "CC": 0.25, "RC": 0.35, "PR": 0.2}, "bonuses": {"Q2": "A", "Q10": "C", "Q16": "C", "Q18": "B"}}, {"name": "Community Health", "weights": {"HA": 0.03, "CC": 0.35, "RC": 0.55, "PR": 0.07}, "bonuses": {"Q7": "C", "Q16": "C", "Q19": "C", "Q20": "C"}}, {"name": "School Nursing", "weights": {"HA": 0.02, "CC": 0.35, "RC": 0.55, "PR": 0.08}, "bonuses": {"Q7": "C", "Q10": "C", "Q16": "C", "Q19": "C"}}, {"name": "Operating Room", "weights": {"HA": 0.18, "CC": 0.12, "RC": 0.05, "PR": 0.65}, "bonuses": {"Q1": "D", "Q7": "D", "Q12": "D", "Q18": "D"}}, {"name": "Cath Lab", "weights": {"HA": 0.28, "CC": 0.17, "RC": 0.05, "PR": 0.5}, "bonuses": {"Q1": "A", "Q7": "D", "Q15": "A", "Q18": "D"}}, {"name": "PACU", "weights": {"HA": 0.2, "CC": 0.3, "RC": 0.1, "PR": 0.4}, "bonuses": {"Q5": "D", "Q10": "D", "Q14": "D", "Q19": "D"}}, {"name": "Dialysis", "weights": {"HA": 0.05, "CC": 0.35, "RC": 0.2, "PR": 0.4}, "bonuses": {"Q5": "B", "Q12": "D", "Q18": "D", "Q19": "D"}}, {"name": "Endoscopy", "weights": {"HA": 0.08, "CC": 0.25, "RC": 0.07, "PR": 0.6}, "bonuses": {"Q1": "D", "Q7": "D", "Q13": "D", "Q19": "D"}}, {"name": "Interventional Radiology", "weights": {"HA": 0.18, "CC": 0.17, "RC": 0.05, "PR": 0.6}, "bonuses": {"Q1": "D", "Q6": "D", "Q13": "D", "Q18": "D"}}, {"name": "Case Management", "weights": {"HA": 0.02, "CC": 0.48, "RC": 0.42, "PR": 0.08}, "bonuses": {"Q10": "B", "Q16": "B", "Q18": "B", "Q19": "C"}}, {"name": "Primary Care", "weights": {"HA": 0.02, "CC": 0.42, "RC": 0.46, "PR": 0.1}, "bonuses": {"Q7": "C", "Q10": "B", "Q16": "B", "Q19": "C"}}];
+const personalityTypes = [{"code": "CS", "name": "The Crisis Stabilizer", "primary": "High Acuity", "secondary": "Procedural", "tagline": "Calm in chaos. Sharp under pressure.", "summary": "You thrive when the stakes are high and seconds matter. You like action, rapid assessment, and decisive intervention.", "best": ["Emergency Room", "Trauma ICU", "Cardiovascular ICU", "Flight Nursing"], "watch": "Can get bored in slow units and may under-value relationship-based care if not intentional."}, {"code": "FR", "name": "The Fast-Track Responder", "primary": "High Acuity", "secondary": "Clinical Care", "tagline": "Quick-thinking with a systems mind.", "summary": "You like urgent environments, but you also appreciate care coordination and seeing a plan come together after the crisis.", "best": ["Emergency Department Observation", "Telemetry", "Step-Down", "Rapid Response Team"], "watch": "May feel frustrated by disorganized teams or ambiguous protocols."}, {"code": "PA", "name": "The Patient Advocate", "primary": "Clinical Care", "secondary": "Relationship Care", "tagline": "Reliable, steady, and deeply patient-centered.", "summary": "You are built for continuity, communication, and helping patients move from illness toward stability.", "best": ["Medical-Surgical", "Oncology", "Primary Care", "Case Management"], "watch": "Can absorb too much emotional stress when boundaries are weak."}, {"code": "RC", "name": "The Recovery Coordinator", "primary": "Clinical Care", "secondary": "Procedural", "tagline": "Order, follow-through, and clinical precision.", "summary": "You work best when there is a clear plan, measurable progress, and a need for consistent technical follow-through.", "best": ["Telemetry", "PACU", "Dialysis", "Rehabilitation"], "watch": "May dislike chaotic units with frequent abrupt pivots."}, {"code": "CP", "name": "The Comfort Provider", "primary": "Relationship Care", "secondary": "Clinical Care", "tagline": "Empathy with practical follow-through.", "summary": "You naturally connect with patients and families while still keeping the care plan moving.", "best": ["Pediatrics", "Hospice", "Oncology", "Labor & Delivery"], "watch": "Needs emotional boundaries and recovery time after intense shifts."}, {"code": "LG", "name": "The Lifelong Guide", "primary": "Relationship Care", "secondary": "Low Acuity / Education", "tagline": "Teacher, coach, and trusted steady presence.", "summary": "You shine in roles that involve education, prevention, advocacy, and longer-view support.", "best": ["Community Health", "School Nursing", "Primary Care", "Diabetes Education"], "watch": "May feel depleted in constant high-acuity settings."}, {"code": "PS", "name": "The Precision Specialist", "primary": "Procedural", "secondary": "High Acuity", "tagline": "Focused, exact, and excellent with complex tasks.", "summary": "You enjoy technical mastery, equipment, sterile flow, and performing under performance pressure.", "best": ["Operating Room", "Cath Lab", "Neuro ICU", "Interventional Radiology"], "watch": "May prefer task certainty over emotionally ambiguous environments."}, {"code": "TCO", "name": "The Technical Care Operator", "primary": "Procedural", "secondary": "Clinical Care", "tagline": "Structured, methodical, and technically dependable.", "summary": "You like procedure-driven work, repeatable excellence, and environments with strong systems.", "best": ["Endoscopy", "Dialysis", "PACU", "Ambulatory Surgery"], "watch": "May become restless if workflows are inefficient or inconsistent."}];
+const state = {
+  index: 0,
+  answers: {}
+};
+
+function startQuiz() {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  if (!name || !email) {
+    alert("Please enter your first name and email.");
+    return;
+  }
+  document.getElementById('quizSection').classList.remove('hidden');
+  document.getElementById('quizSection').scrollIntoView({behavior:'smooth'});
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = questions[state.index];
+  document.getElementById('qcount').innerText = `Question ${state.index+1} of ${questions.length}`;
+  document.getElementById('qtext').innerText = q.text;
+  document.getElementById('bar').style.width = `${((state.index)/questions.length)*100}%`;
+  document.getElementById('weightTag').innerHTML = q.weight > 1 ? `<span class="weight">Weighted question ×2</span>` : ``;
+  const options = document.getElementById('options');
+  options.innerHTML = '';
+  ['A','B','C','D'].forEach(letter => {
+    const div = document.createElement('div');
+    div.className = 'option' + (state.answers[q.id] === letter ? ' active' : '');
+    div.onclick = () => {
+      state.answers[q.id] = letter;
+      renderQuestion();
+    };
+    div.innerHTML = `<div class="letter">${letter}</div><div><strong>${dimensionLabel(letter)}</strong><div style="margin-top:4px;color:#44515c;">${q[letter]}</div></div>`;
+    options.appendChild(div);
+  });
+}
+
+function dimensionLabel(letter) {
+  return {A:'High Acuity',B:'Clinical Care',C:'Relationship Care',D:'Procedural'}[letter];
+}
+
+function prevQuestion() {
+  if (state.index > 0) {
+    state.index -= 1;
+    renderQuestion();
+  }
+}
+
+function nextQuestion() {
+  const q = questions[state.index];
+  if (!state.answers[q.id]) {
+    alert("Select one answer to continue.");
+    return;
+  }
+  if (state.index < questions.length - 1) {
+    state.index += 1;
+    renderQuestion();
+  } else {
+    calculateResults();
+  }
+}
+
+function categoryTotals() {
+  const totals = {HA:0, CC:0, RC:0, PR:0};
+  questions.forEach(q => {
+    const ans = state.answers[q.id];
+    const points = q.weight || 1;
+    if (ans === 'A') totals.HA += points;
+    if (ans === 'B') totals.CC += points;
+    if (ans === 'C') totals.RC += points;
+    if (ans === 'D') totals.PR += points;
+  });
+  return totals;
+}
+
+function normalize(totals) {
+  const sum = totals.HA + totals.CC + totals.RC + totals.PR;
+  return {
+    HA: +(totals.HA / sum * 100).toFixed(1),
+    CC: +(totals.CC / sum * 100).toFixed(1),
+    RC: +(totals.RC / sum * 100).toFixed(1),
+    PR: +(totals.PR / sum * 100).toFixed(1)
+  };
+}
+
+function rankDims(norm) {
+  return Object.entries(norm).sort((a,b) => b[1]-a[1]);
+}
+
+function pickPersonality(norm) {
+  const ranked = rankDims(norm);
+  const primary = ranked[0][0], secondary = ranked[1][0];
+  if (primary === 'HA' && secondary === 'PR') return 'CS';
+  if (primary === 'HA') return 'FR';
+  if (primary === 'CC' && secondary === 'RC') return 'PA';
+  if (primary === 'CC') return 'RC';
+  if (primary === 'RC' && norm.HA <= 15) return 'LG';
+  if (primary === 'RC') return 'CP';
+  if (primary === 'PR' && secondary === 'HA') return 'PS';
+  return 'TCO';
+}
+
+function calcSpecialtyScores(norm) {
+  const out = specialties.map(sp => {
+    const base = norm.HA*sp.weights.HA + norm.CC*sp.weights.CC + norm.RC*sp.weights.RC + norm.PR*sp.weights.PR;
+    let bonus = 0;
+    Object.entries(sp.bonuses).forEach(([qid, expected]) => {
+      if (state.answers[qid] === expected) bonus += 3.5;
+    });
+    return { name: sp.name, score: +(base + bonus).toFixed(2), weights: sp.weights };
+  });
+  return out.sort((a,b) => b.score - a.score);
+}
+
+function whyLines(top, norm) {
+  const ranked = rankDims(norm);
+  const dimNames = {HA:'high-acuity comfort',CC:'structured clinical follow-through',RC:'relationship-centered care',PR:'procedural precision'};
+  return [
+    `Your strongest fit dimensions were ${dimNames[ranked[0][0]]} and ${dimNames[ranked[1][0]]}.`,
+    `${top[0].name} scored highest because its weight profile matches your current pattern of preferences.`,
+    `Your answer pattern also added bonus points to specialties that matched your strongest work-style choices.`
+  ];
+}
+
+function calculateResults() {
+  const totals = categoryTotals();
+  const norm = normalize(totals);
+  const typeCode = pickPersonality(norm);
+  const type = personalityTypes.find(p => p.code === typeCode);
+  const rankedSpecialties = calcSpecialtyScores(norm).slice(0,3);
+
+  document.getElementById('quizSection').classList.add('hidden');
+  document.getElementById('resultsSection').classList.remove('hidden');
+  document.getElementById('resultsSection').scrollIntoView({behavior:'smooth'});
+  document.getElementById('typeCode').innerText = type.code;
+  document.getElementById('typeName').innerText = type.name;
+  document.getElementById('typeTagline').innerText = type.tagline;
+  document.getElementById('typeSummary').innerText = type.summary;
+  document.getElementById('watchOut').innerText = 'Watch-out zone: ' + type.watch;
+
+  const scoreBox = document.getElementById('scores');
+  scoreBox.innerHTML = '';
+  [['HA','High Acuity'],['CC','Clinical Care'],['RC','Relationship'],['PR','Procedural']].forEach(([key,label]) => {
+    const div = document.createElement('div');
+    div.className = 'kpi';
+    div.innerHTML = `<strong>${label}</strong><span>${norm[key]}%</span>`;
+    scoreBox.appendChild(div);
+  });
+
+  const topList = document.getElementById('topSpecialties');
+  topList.innerHTML = '';
+  rankedSpecialties.forEach(sp => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${sp.name}</strong> — compatibility score ${sp.score}`;
+    topList.appendChild(li);
+  });
+
+  const why = document.getElementById('whyMatched');
+  why.innerHTML = '';
+  whyLines(rankedSpecialties, norm).forEach(line => {
+    const li = document.createElement('li');
+    li.textContent = line;
+    why.appendChild(li);
+  });
+}
+</script>
+
+
+</body></html>
