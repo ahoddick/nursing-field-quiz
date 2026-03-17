@@ -1,0 +1,5 @@
+# Jekyll build files
+_site/
+*.html
+*.temp
+.jekyll-cache/
