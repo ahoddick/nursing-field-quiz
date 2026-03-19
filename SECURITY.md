@@ -7,15 +7,15 @@ currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 5.1.x   | yes |
+| 5.0.x   | no                |
+| 4.0.x   | yes |
+| < 4.0   | no                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+If you are experiencing a vulnerability, email the admin directly at
+ahoddick@officiallyssalou.com and title the message as "Quiz Vulnerability Notification".
+Include as much detail as possible in your message to help resolve the issue.
+If you would like to be notified of any updates, you must explicitly state
+"reply with update" in the body of your message.
